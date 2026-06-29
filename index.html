@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Carteirinhas Paz e Vida - Obreiros</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">  
+</head>
+<body>
+
+    <div class="controles">
+        <h2>Gerador de Carteirinhas de obreiros</h2>
+        <p>Preencha os dados. Clique no espaço tracejado para inserir a foto.</p>
+        <div class="botoes">
+            <button onclick="imprimir()">🖨️ Imprimir</button>
+        </div>
+    </div>
+
+    <div class="area-de-trabalho">
+        
+        <div class="folha-a4" id="areaPrint">
+    
+            <div class="carteirinha cart-1">
+            <input type="text" class="campo nome" placeholder="Nome Completo">
+            <input type="text" class="campo sede" placeholder="Sede">
+            <input type="text" class="campo uf-sede" placeholder="UF">
+            <input type="text" class="campo rg" placeholder="RG">
+            <input type="text" class="campo depto" placeholder="Departamento">
+            <input type="text" class="campo cargo" placeholder="Cargo">
+        
+            <label class="area-foto">
+                <input type="file" class="upload-foto" accept="image/*">
+                <div class="preview-foto">Foto 3x4</div>
+            </label>
+        </div>
+
+        <div class="carteirinha cart-2">
+            <input type="text" class="campo nome" placeholder="Nome Completo">
+            <input type="text" class="campo sede" placeholder="Sede">
+            <input type="text" class="campo uf-sede" placeholder="UF">
+            <input type="text" class="campo rg" placeholder="RG">
+            <input type="text" class="campo depto" placeholder="Departamento">
+            <input type="text" class="campo cargo" placeholder="Cargo">
+        
+            <label class="area-foto">
+                <input type="file" class="upload-foto" accept="image/*">
+                <div class="preview-foto">Foto 3x4</div>
+            </label>
+        </div>
+
+        <div class="carteirinha cart-3">
+            <input type="text" class="campo nome" placeholder="Nome Completo">
+            <input type="text" class="campo sede" placeholder="Sede">
+            <input type="text" class="campo uf-sede" placeholder="UF">
+            <input type="text" class="campo rg" placeholder="RG">
+            <input type="text" class="campo depto" placeholder="Departamento">
+            <input type="text" class="campo cargo" placeholder="Cargo">
+        
+            <label class="area-foto">
+                <input type="file" class="upload-foto" accept="image/*">
+                <div class="preview-foto">Foto 3x4</div>
+            </label>
+        </div>
+
+        <div class="carteirinha cart-4">
+            <input type="text" class="campo nome" placeholder="Nome Completo">
+            <input type="text" class="campo sede" placeholder="Sede">
+            <input type="text" class="campo uf-sede" placeholder="UF">
+            <input type="text" class="campo rg" placeholder="RG">
+            <input type="text" class="campo depto" placeholder="Departamento">
+            <input type="text" class="campo cargo" placeholder="Cargo">
+        
+            <label class="area-foto">
+                <input type="file" class="upload-foto" accept="image/*">
+                <div class="preview-foto">Foto 3x4</div>
+            </label>
+    </div>
+
+</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

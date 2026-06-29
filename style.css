@@ -1,0 +1,172 @@
+/* Reset Básico */
+/* =========================================================================
+   1. RESET BÁSICO E CONFIGURAÇÕES GERAIS
+   ========================================================================= */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e0e5ec;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/* Painel Superior de Botões */
+.controles {
+    background: #ffffff;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 10;
+}
+
+.botoes button {
+    padding: 10px 20px;
+    margin: 5px;
+    font-size: 14px;
+    cursor: pointer;
+    background-color: #004a99;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+
+/* Container da Área de Trabalho */
+.area-de-trabalho {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    overflow: auto; /* Tela menor = scroll, mantendo o layout intacto */
+}
+
+/* =========================================================================
+   2. A FOLHA A4 E REDE DE GRIDS
+   ========================================================================= */
+.folha-a4 {
+    position: relative;
+    width: 794px;  /* Largura fixa padrão A4 */
+    height: 1123px; /* Altura fixa padrão A4 */
+    min-width: 794px; 
+    min-height: 1123px; 
+    background-color: #ffffff;
+    background-image: url('CARTEIRINHA_OBREIROS.jpg');
+    background-size: 100% 100%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    
+    /* Divisão perfeita da folha em 4 quadrantes (2 colunas x 2 linhas) */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+/* AQUI ESTÁ A CORREÇÃO: 
+   Garante que QUALQUER uma das 4 carteirinhas sirva como ponto de referência (0,0)
+   para os seus respectivos campos internos.
+*/
+.folha-a4 > div, 
+.carteirinha,
+.carteirinha-1 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* As 4 áreas principais ficam 100% fixas no quadrante do Grid */
+.cart-1, .cart-2, .cart-3, .cart-4 {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* =========================================================================
+   3. DESLOCAMENTO EXCLUSIVO DOS CAMPOS (SEM MEXER NAS DIVS ESTRUTURAIS)
+   Altere os valores de translate(X, Y) para mover TODOS os campos daquela div juntos.
+   Primeiro valor (X) = Esquerda (-) / Direita (+) 
+   Segundo valor (Y)  = Cima (-) / Baixo (+)
+   ========================================================================= */
+.cart-1 .campo, .cart-1 .area-foto { transform: translate(0px, 0px); } /* Padrão (Sua base perfeita) */
+.cart-2 .campo, .cart-2 .area-foto { transform: translate(-62px, 1px); } /* Ajuste Geral dos campos da 2 */
+.cart-3 .campo, .cart-3 .area-foto { transform: translate(0px, -80px); } /* Ajuste Geral dos campos da 3 */
+.cart-4 .campo, .cart-4 .area-foto { transform: translate(-67px, -80px); } /* Ajuste Geral dos campos da 4 */
+
+/* =========================================================================
+   3. ESTILO BASE DOS CAMPOS DE TEXTO
+   ========================================================================= */
+.campo {
+    position: absolute;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #000;
+    
+    /* Fonte Roboto Light Italic correspondente ao seu projeto */
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-style: italic;
+    text-align: center;
+}
+
+.campo::placeholder { 
+    color: rgba(0,0,0,0.4);
+}
+
+/* =========================================================================
+   4. COORDENADAS DOS SEUS TESTES (REPLICADAS AUTOMATICAMENTE PARA AS 4)
+   ========================================================================= */
+.nome       { top: 175px; left: 80px; width: 310px; }
+.sede       { top: 205px; left: 185px; width: 155px; }
+.uf-sede    { top: 205px; left: 347px; width: 40px; }
+.rg         { top: 235px; left: 275px; width: 110px; }
+.depto      { top: 265px; left: 235px; width: 155px; }
+.cargo      { top: 295px; left: 235px; width: 155px; }
+
+/* Espaço da Foto */
+.area-foto {
+    position: absolute;
+    top: 206px; 
+    left: 84px; 
+    width: 78px;  /* aprox 3cm */
+    height: 98px; /* aprox 4cm */
+    cursor: pointer;
+}
+
+.cart-4 .area-foto {
+    left: 90px;
+}
+
+.upload-foto { 
+    display: none; 
+}
+
+.preview-foto {
+    width: 100%;
+    height: 100%;
+    border: 1px dashed #004a99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #004a99;
+    font-size: 12px;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+}
+
+/* =================================================== */
+
+/* Regras de Impressão (Oculta painéis e zera margens) */
+@media print {
+    .controles, ::-webkit-scrollbar { display: none !important; }
+    @page { margin: 0; size: A4 portrait; }
+    body { background: none; padding: 0; }
+    .area-de-trabalho { padding: 0; overflow: hidden; }
+    .folha-a4 { box-shadow: none; }
+    .preview-foto { border: none; color: transparent; }
+}
