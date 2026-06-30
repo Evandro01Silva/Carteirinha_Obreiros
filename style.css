@@ -109,7 +109,7 @@ body {
     /* Fonte Roboto Light Italic correspondente ao seu projeto */
     /*font-family: 'Roboto', sans-serif;*/
     font-family: 'Times New Roman', Times, serif;
-    font-weight: bold;
+    font-weight: 400;
     font-style: italic;
     text-align: center;
 }
